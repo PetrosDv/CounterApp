@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: this.props.value
+    value: this.props.counter.value
     //tags: ["tag1", "tag2", "tag3"] // I will use the map method to render list of items
     //imageUrl: "https://picsum.photos/199" // <img src={this.state.imageUrl} alt="" />
   };
@@ -15,17 +15,21 @@ class Counter extends Component {
   };
 
   render() {
-    console.log(this.props);
     //it returns a new react element - div - which has 2 children (span & button)
     return (
       <div>
-        <h4>{this.props.id}</h4>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onclick={() => this.handleIncrement(product)}
           className="btn btn-secondary btn-sm"
         >
           Increment
+        </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
         </button>
       </div>
     );
