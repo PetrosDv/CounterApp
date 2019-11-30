@@ -7,16 +7,14 @@ class Counter extends Component {
     //imageUrl: "https://picsum.photos/199" // <img src={this.state.imageUrl} alt="" />
   };
 
-  constructor() {
-    super();
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
-
-  handleIncrement() {
-    console.log("Increment clicked", this);
+  //error function syntax: function = (..) => {...}
+  handleIncrement = product => {
+    console.log(product);
     //this.state.count++; <-- this is not working in React, instead we use below
     this.setState({ count: this.state.count + 1 });
-  }
+  };
+
+  //error function syntax
 
   render() {
     //it returns a new react element - div - which has 2 children (span & button)
@@ -24,16 +22,11 @@ class Counter extends Component {
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onclick={this.handleIncrement}
+          onclick={() => this.handleIncrement(product)}
           className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
-        <ul>
-          {this.state.tags.map(tag => (
-            <li key={tag}> {tag} </li>
-          ))}
-        </ul>
       </div>
     );
   }
