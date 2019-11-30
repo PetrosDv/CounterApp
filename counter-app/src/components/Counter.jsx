@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
-    tags: ["tag1", "tag2", "tag3"] // I will use the map method to render list of items
+    value: this.props.value
+    //tags: ["tag1", "tag2", "tag3"] // I will use the map method to render list of items
     //imageUrl: "https://picsum.photos/199" // <img src={this.state.imageUrl} alt="" />
   };
 
@@ -11,10 +11,8 @@ class Counter extends Component {
   handleIncrement = product => {
     console.log(product);
     //this.state.count++; <-- this is not working in React, instead we use below
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
-
-  //error function syntax
 
   render() {
     //it returns a new react element - div - which has 2 children (span & button)
@@ -33,12 +31,12 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
+    const { value: count } = this.state;
     return count === 0 ? "Zero" : count;
   }
 }
