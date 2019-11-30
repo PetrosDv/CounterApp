@@ -7,11 +7,6 @@ class Counter extends Component {
     //imageUrl: "https://picsum.photos/199" // <img src={this.state.imageUrl} alt="" />
   };
 
-  // styles = {
-  //   fontSize: 10,
-  //   fontWeight: "bold"
-  // };
-
   constructor() {
     super();
     this.handleIncrement = this.handleIncrement.bind(this);
@@ -19,9 +14,12 @@ class Counter extends Component {
 
   handleIncrement() {
     console.log("Increment clicked", this);
+    //this.state.count++; <-- this is not working in React, instead we use below
+    this.setState({ count: this.state.count + 1 });
   }
 
   render() {
+    //it returns a new react element - div - which has 2 children (span & button)
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
