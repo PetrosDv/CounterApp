@@ -15,9 +15,11 @@ class Counter extends Component {
   };
 
   render() {
+    console.log(this.props);
     //it returns a new react element - div - which has 2 children (span & button)
     return (
       <div>
+        <h4>{this.props.id}</h4>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onclick={() => this.handleIncrement(product)}
